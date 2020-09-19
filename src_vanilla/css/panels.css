@@ -40,3 +40,7 @@ video {
     color: #8bc34a;
     
   }
+
+.title {
+    font-weight: bold;
+}
