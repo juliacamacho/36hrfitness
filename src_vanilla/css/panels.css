@@ -1,0 +1,33 @@
+.card {
+    background-color:#fafafa;
+    height: 45vh;
+}
+
+#webcam{
+    /* margin-left: 3vw; */
+    /* margin-right: 3vw; */
+}
+
+#otherPeople {
+}
+
+
+#gradient {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+    
+}
+
+video {
+    max-width: 40vw;
+    max-height: 95%;
+    text-align: center;
+    height: auto;
+    padding-left: 2.5%;
+    padding-top: 1.5%;
+    text-align: center;
+}
+

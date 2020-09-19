@@ -11,14 +11,11 @@
 }
 
 #button {
-    background: #3f51b5;
+    background: #ff5722;
     height: 6vh;
     border-radius: 1vh;
     margin-left: 2vw;
-
     color: #fafafa;
-    /* padding-top: 50%; */
-
     font-size: 2vw;
 }
 
