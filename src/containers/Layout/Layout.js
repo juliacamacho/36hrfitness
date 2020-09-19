@@ -12,8 +12,10 @@ const layout = (props) => {
                 <h1>Welcome to 36hr Fitness!</h1>
             </div>
             <Search />
-            <VideoStream />
-            <WebcamStream />
+            <div className={classes.VideoStreams}>
+                <VideoStream />
+                <WebcamStream />
+            </div>
             <Results />
         </div>
     )

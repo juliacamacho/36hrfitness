@@ -1,9 +1,11 @@
 import React from 'react';
+import classes from './Results.css'
 
 const results = (props) => {
     return(
-        <div>
-
+        <div className={classes.Results}>
+            <h1>Your results:</h1>
+            <textarea></textarea>
         </div>
     )
 };

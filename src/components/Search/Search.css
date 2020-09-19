@@ -4,3 +4,10 @@
     padding-bottom: 10px;
     text-align: center;
 }
+
+.Form {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding: 10px 10px;
+}
