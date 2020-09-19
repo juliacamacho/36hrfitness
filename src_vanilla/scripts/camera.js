@@ -114,11 +114,12 @@ function detectPoseInRealTime(staticVideo, canvasID, webcamVideo, webcamID, net,
 
     webcamCanvas.width = videoWidth;
     webcamCanvas.height = videoHeight;
-    let d = new Date();
-    let nowTime = (d.getTime() - n) / 1000;
+
+    let lastVideoPose = [];
+    let lastWebcamPose = [];
 
     async function staticPoseDetectionFrame() {
-        let poses = [];
+        lastVideoPose = [];
         let minPoseConfidence;
         let minPartConfidence;
 
@@ -126,7 +127,7 @@ function detectPoseInRealTime(staticVideo, canvasID, webcamVideo, webcamID, net,
             flipHorizontal: flipPoseHorizontal,
             decodingMethod: 'single-person',
         });
-        poses = poses.concat(pose);
+        lastVideoPose = lastVideoPose.concat(pose);
         minPoseConfidence = +guiState.singlePoseDetection.minPoseConfidence;
         minPartConfidence = +guiState.singlePoseDetection.minPartConfidence;
 
@@ -146,8 +147,7 @@ function detectPoseInRealTime(staticVideo, canvasID, webcamVideo, webcamID, net,
         // poses and draw the resulting skeleton and keypoints if over certain
         // confidence scores
 
-        poses.forEach(({score, keypoints}) => {
-            console.log({nowTime, keypoints});
+        lastVideoPose.forEach(({score, keypoints}) => {
             if (score >= minPoseConfidence) {
                 if (guiState.output.showPoints) {
                     drawKeypoints(keypoints, minPartConfidence, ctx);
@@ -159,7 +159,6 @@ function detectPoseInRealTime(staticVideo, canvasID, webcamVideo, webcamID, net,
                     drawBoundingBox(keypoints, ctx);
                 }
             }
-            return {nowTime, keypoints};
         });
 
         // End monitoring code for frames per second
@@ -169,7 +168,7 @@ function detectPoseInRealTime(staticVideo, canvasID, webcamVideo, webcamID, net,
     }
 
     async function webcamPoseDetectionFrame() {
-        let poses = [];
+        lastWebcamPose = [];
         let minPoseConfidence;
         let minPartConfidence;
 
@@ -177,7 +176,7 @@ function detectPoseInRealTime(staticVideo, canvasID, webcamVideo, webcamID, net,
             flipHorizontal: flipPoseHorizontal,
             decodingMethod: 'single-person',
         });
-        poses = poses.concat(pose);
+        lastWebcamPose = lastWebcamPose.concat(pose);
         minPoseConfidence = +guiState.singlePoseDetection.minPoseConfidence;
         minPartConfidence = +guiState.singlePoseDetection.minPartConfidence;
 
@@ -196,8 +195,7 @@ function detectPoseInRealTime(staticVideo, canvasID, webcamVideo, webcamID, net,
         // poses and draw the resulting skeleton and keypoints if over certain
         // confidence scores
 
-        poses.forEach(({score, keypoints}) => {
-            console.log({nowTime, keypoints});
+        lastWebcamPose.forEach(({score, keypoints}) => {
             if (score >= minPoseConfidence) {
                 if (guiState.output.showPoints) {
                     drawKeypoints(keypoints, minPartConfidence, webcamCtx);
@@ -209,12 +207,13 @@ function detectPoseInRealTime(staticVideo, canvasID, webcamVideo, webcamID, net,
                     drawBoundingBox(keypoints, webcamCtx);
                 }
             }
-            return {nowTime, keypoints};
         });
 
         // End monitoring code for frames per second
         // stats.end();
-
+        // console.log(lastWebcamPose[0])
+        // console.log(lastVideoPose[0])
+        // process_angles(lastWebcamPose[0], lastVideoPose[0])
         requestAnimationFrame(staticPoseDetectionFrame);
     }
 
