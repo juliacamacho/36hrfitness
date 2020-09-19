@@ -37,8 +37,6 @@ function match_video_streams(youtube, webcam) {
         }
     }
 
-    console.log(dp);
-
     let path = new Array(0);
 
     let r = n, c = m;
@@ -60,7 +58,10 @@ function match_video_streams(youtube, webcam) {
 
         r = vals[0][1];
         c = vals[0][2];
-    } while (!(!r && !c)); path.push([0, 0])
+    } while (!(!r && !c)); path.push([0, 0]); path.reverse();
+
+    console.log(dp);
+    console.log(path)
 
     return [path, dp]
 }
