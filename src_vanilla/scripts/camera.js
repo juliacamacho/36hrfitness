@@ -279,7 +279,9 @@ async function updateFrameVideo(urls) {
         'webcam-output', net, n);
 }
 
-navigator.getUserMedia = navigator.getUserMedia ||
+console.log('im here at 282 in cam');
+
+navigator.getUserMedia = navigator.mediaDevices.getUserMedia ||
     navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
 // kick off the demo
