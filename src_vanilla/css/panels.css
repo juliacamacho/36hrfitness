@@ -28,6 +28,8 @@ video {
     height: auto;
     padding-left: 2.5%;
     padding-top: 1.5%;
-    text-align: center;
 }
 
+.vcard {
+    height: 239px;
+}

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/panels.css">
+    <link rel="stylesheet" href="css/circular.css">
 
 </head>
 <body>
@@ -16,24 +17,50 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="scripts/index.js"></script>
 
-
     <img id="gradient" src="media/background.png"></img>
+
+<!--    add textbox at top-->
       
-    <div class="row top">
+    <div class="row top" style="margin-bottom: 0px">
         <div id = "webcam" class="col s6 center-align">
-            <div class="card">
+            <div class="card large">
                 <video autoplay muted loop id="workout">
                     <source src="media/workout.mp4" type="video/mp4">
                 </video>
             </div>
         </div>
         <div id = "otherPeople" class="col s6 center-align">
-            <div class="card">
-                <!-- <div class="card-image"> -->
-                    <video autoplay muted loop id="workout">
-                        <source src="media/workout.mp4" type="video/mp4">
-                    </video>
-                <!-- </div> -->
+            <div class="row" style="margin-bottom: 0px;">
+                <div class="col s6 center-align">
+                    <div class="card vcard">
+                        <video autoplay muted loop id="workout">
+                            <source src="media/workout.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="col s6 center-align">
+                    <div class="card vcard">
+                        <video autoplay muted loop id="workout">
+                            <source src="media/workout.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 0px">
+                <div class="col s6 center-align">
+                    <div class="card vcard">
+                        <video autoplay muted loop id="workout">
+                            <source src="media/workout.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="col s6 center-align">
+                    <div class="card vcard">
+                        <video autoplay muted loop id="workout">
+                            <source src="media/workout.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -41,26 +68,33 @@
 
     <div class="row bottom">
         <div id = "" class="col s3">
-            <div class="card z-depth-3">
+            <div class="card medium z-depth-3">
+                <div class="spinner">
+                    <span style="color: white">asdf</span>
+                    <div class="loader">
+                        <span style="color: white">asdf</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id = "" class="col s3">
+            <div class="card medium z-depth-3">
+                <canvas id="line-chart"></canvas>
+            </div>
+        </div>
+        <div id = "" class="col s6">
+            <div class="card medium z-depth-3">
 
             </div>
         </div>
-        <div id = "" class="col s3">
-            <div class="card z-depth-3">
-            </div>
-        </div>
-        <div id = "" class="col s3">
-            <div class="card z-depth-3">
-
-            </div>
-        </div>
-        <div id = "" class="col s3">
-            <div class="card z-depth-3">
-            </div>
-        </div>
+<!--        <div id = "" class="col s3">-->
+<!--            <div class="card small z-depth-3">-->
+<!--            </div>-->
+<!--        </div>-->
     </div>
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="scripts/graphing.js"></script>
 
 </body>
 </html>
