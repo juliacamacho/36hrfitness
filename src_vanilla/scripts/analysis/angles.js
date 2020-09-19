@@ -30,6 +30,10 @@ function extract_points(single, param) {
     return lstar;
 }
 
+function process_angles(yt_single, wc_single) {
+    console.log(compute_anatomical_angles(yt_single, wc_single));
+}
+
 function compute_anatomical_angles(yt_single, wc_single) {
     const params = {
         'knee': {
