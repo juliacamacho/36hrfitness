@@ -1,7 +1,61 @@
 .Splash {
     background-color: #E2EEFF;
-    display: flex;
+    /* display: flex;
     flex-flow: column;
-    align-items: center;
-    padding: 50px 0px;
+    align-items: center; */
+    /* padding: 50px 0px; */
 }
+
+.Overlay {
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    overflow: auto;
+    top: 0px;
+    left: 0px;
+    background: rgba(0, 0, 0, 0.2); /*can be anything, of course*/
+}
+
+.Header {
+    position: absolute;
+    top:0;
+    left:0;
+    z-index:1;
+    padding-top: 120px;
+    padding-left: 60px;
+    font-size: 170px;
+    font-weight: bold;
+    color: white;
+    line-height: 160px;
+}
+
+.Button {
+    position: absolute;
+    top:0;
+    left:0;
+    z-index:1;
+    padding-top: 490px;
+    padding-left: 70px;
+}
+
+.Option1 {
+    position: absolute;
+    top:0;
+    left:0;
+    z-index:1;
+    padding-top: 550px;
+    padding-left: 70px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* .Classes2 {
+    position: absolute;
+    top:0;
+    left:0;
+    z-index:1;
+    padding-top: 550px;
+    padding-left: 70px
+
+} */
