@@ -237,6 +237,7 @@ async function updateFrameVideo(urls) {
  * available camera devices, and setting off the detectPoseInRealTime function.
  */
  async function bindPage(n) {
+     console.log("got to bindPage")
     toggleLoadingUI(true);
 
     const net = await posenet.load({
@@ -270,6 +271,8 @@ async function updateFrameVideo(urls) {
         info.style.display = 'block';
         throw e;
     }
+    console.log("got to gui")
+
 
     setupGui([], net);
     detectPoseInRealTime(staticVideo, 'output', webcamVideo,
@@ -283,12 +286,13 @@ navigator.getUserMedia = navigator.getUserMedia ||
 // updateFrameVideo('www.youtube.com/watch?v=2MoGxae-zyo');
 
 
-let video = document.getElementById('video-container');
-video.addEventListener('loadeddata', function() {
-    let d = new Date();
-    let n = d.getTime();
-    bindPage(n);
-}, false);
+// let video = document.getElementById('video-container');
+// video.addEventListener('loadeddata', function() {
+//
+// }, false);
+let d = new Date();
+let n = d.getTime();
+bindPage(n);
 // video.crossOrigin = 'anonymous';
 // video.src = video2;
 // video.load();
