@@ -196,10 +196,14 @@ function detectPoseInRealTime(staticVideo, canvasID, webcamVideo, webcamID, net,
         // stats.end();
         // console.log(lastWebcamPose[0])
         // console.log(lastVideoPose[0])
+
         // KEVIN LOOK HERE
-        let path = match_video_streams(lastVideoPose, lastWebcamPose)[1];
+        let match_res = match_video_streams(lastVideoPose, lastWebcamPose);
         // console.log(path)
-        process_angles(lastWebcamPose[0], lastVideoPose[0], path);
+
+        let score = match_res[0];
+        let path = match_res[1];
+        process_angles(lastWebcamPose, lastVideoPose, path);
 
 
         lastWebcamPose = lastWebcamPose.slice(-20)  // cap at 20 elements
