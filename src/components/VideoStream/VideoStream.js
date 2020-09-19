@@ -1,8 +1,9 @@
 import React from 'react';
+import classes from './VideoStream.css'
 
 const videoStream = (props) => {
     return(
-        <div>
+        <div className={classes.VideoStream}>
             <p>Video stream here</p>
         </div>
     )

@@ -5,6 +5,7 @@ import WebcamStream from '../../components/WebcamStream/WebcamStream'
 import Results from '../../components/Results/Results'
 import classes from './Layout.css'
 import Grid from '@material-ui/core/Grid';
+import ResponsiveGridLayout from 'react-grid-layout';
 
 const layout = (props) => {
 
@@ -12,23 +13,50 @@ const layout = (props) => {
 
     return (
         <div className={classes.Layout}>
-            <div className={classes.Header}>
-                <h1>Begin your workout...</h1>
-            </div>
-            <Search />
-            {/* <div className={classes.VideoStreams}> */}
-            <Grid
-                container
-                direction="row"
-                justify="center"
-                alignItems="center"
-                spacing={4}
-                >
-                <VideoStream />
+            <ResponsiveGridLayout cols={20} rowHeight={30} width={1650}>
+                <div 
+                    key="a" 
+                    data-grid={{x: 0, y: 0, w: 20, h: 5}}
+                    className={classes.Box}>
+                    <Search />    
+                </div>
+                <div 
+                    key="b" 
+                    data-grid={{x: 0, y: 0, w: 10, h: 10}}
+                    className={classes.Box}>
+                    <VideoStream />    
+                </div>
+                <div 
+                    key="c" 
+                    data-grid={{x: 10, y: 0, w: 10, h: 10}}
+                    className={classes.Box}>
                 <WebcamStream />
-            </Grid>
-            {/* </div> */}
-            <Results />
+                </div>
+                <div 
+                    key="d" 
+                    data-grid={{x: 0, y: 3, w: 5, h: 9}}
+                    className={classes.Box}>
+                    <Results />    
+                </div>
+                <div 
+                    key="e" 
+                    data-grid={{x: 5, y: 3, w: 5, h: 9}}
+                    className={classes.Box}>
+                    <Results />    
+                </div>
+                <div 
+                    key="f" 
+                    data-grid={{x: 10, y: 3, w: 5, h: 9}}
+                    className={classes.Box}>
+                    <Results />    
+                </div>
+                <div 
+                    key="g" 
+                    data-grid={{x: 15, y: 3, w: 5, h: 9}}
+                    className={classes.Box}>
+                    <Results />    
+                </div>
+            </ResponsiveGridLayout>
         </div>
     )
 };
