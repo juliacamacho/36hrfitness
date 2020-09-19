@@ -13,7 +13,7 @@ $(document).ready(function(){
     });
 
     $( "#join" ).click(function() {
-        window.location.href = 'panels.html';
+        window.location.href = 'roomslist.html';
         return false;
     });
 
