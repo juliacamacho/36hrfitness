@@ -30,33 +30,39 @@ function extract_points(single, param) {
     return lstar;
 }
 
-function comp_knee(yt_single, wc_single) {
-    const left_param = [11, 15, 13];
-    const right_param = [12, 16, 14];
+function compute_anatomical_angles(yt_single, wc_single) {
+    const params = {
+        'knee': {
+            'left': [11, 15, 13],
+            'right': [12, 16, 14]
+        },
+        'elbow': {
+            'left': [5, 9, 7],
+            'right': [6, 10, 8]
+        },
+        'hip': {
+            'left': [5, 13, 11],
+            'right': [6, 14, 12]
+        },
+        'neck': {
+            'left': [0, 11, 5],
+            'right': [0, 12, 6]
+        }
+    };
+    let ans = {};
 
-    let left_knee_yt = angle_util(extract_points(yt_single, left_param));
-    let left_knee_wc = angle_util(extract_points(wc_single, left_param));
+    for (let joint in params) {
+        ans[joint] = {}
+        for (let dir in params[joint]) {
+            ans[joint][dir] = {
+                'yt': angle_util(extract_points(yt_single, params[joint][dir])),
+                'wc': angle_util(extract_points(wc_single, params[joint][dir]))
+            };
+        }
+    }
 
-    let right_knee_yt = angle_util(extract_points(yt_single, right_param));
-    let right_knee_wc = angle_util(extract_points(wc_single, right_param));
-
-    return [[left_knee_yt, left_knee_wc], [right_knee_yt, right_knee_wc]]
+    return ans;
 }
-
-// function comp_knee(yt_single, wc_single) {
-//     const left_param = [11, 15, 13];
-//     const right_param = [12, 16, 14];
-//
-//     let left_knee_yt = angle_util(extract_points(yt_single, left_param));
-//     let left_knee_wc = angle_util(extract_points(wc_single, left_param));
-//
-//     let right_knee_yt = angle_util(extract_points(yt_single, right_param));
-//     let right_knee_wc = angle_util(extract_points(wc_single, right_param));
-//
-//     return [[left_knee_yt, left_knee_wc], [right_knee_yt, right_knee_wc]]
-// }
-
-
 
 yt = [
     {
@@ -627,4 +633,4 @@ wc = [
     }
 ];
 
-console.log(comp_knee(yt[0], wc[0]))
+console.log(compute_anatomical_angles(yt[0], wc[0]));
