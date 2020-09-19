@@ -1,5 +1,7 @@
 .Splash {
+    background-color: #E2EEFF;
     display: flex;
     flex-flow: column;
     align-items: center;
+    padding: 50px 0px;
 }
