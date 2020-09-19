@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PoseNet - Camera Feed Demo</title>
+    <link href="css/posenet.css" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Load TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <!-- Load Posenet -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/posenet"></script>
+</head>
+
+<body>
+    <div id="info" style='display:none'>
+    </div>
+    <div id="loading" style='display:flex'>
+        <div class="spinner-text">
+            Loading PoseNet model...
+        </div>
+        <div class="sk-spinner sk-spinner-pulse"></div>
+    </div>
+
+    <button onclick="">Load the video</button>
+    <div id='main' style='display:none' >
+        <video id="video-container" crossOrigin='anonymous' src='https://srv-file4.gofile.io/downloadStore/srv-store3/afOczG/workout.mp4' autoPlay="true"
+               muted="false" width="600" height="500"></video>
+        <canvas id="output" />
+    </div>
+    <h3 id="video-name">Workout Video by Bob</h3>
+    <div id='webcam-main'>
+        <video id="webcam-video" playsinline style="display: none;" width="600" height="500">
+        </video>
+        <canvas id="webcam-output" />
+    </div>
+    <div class="footer">
+        <div class="footer-text">
+            <p>
+                PoseNet runs with either a <strong>single-pose</strong> or <strong>multi-pose</strong> detection
+                algorithm. The single person pose detector is faster and more accurate but requires only one subject
+                present in the image.
+                <br>
+                <br> The <strong>output stride</strong> and <strong>input resolution</strong> have the largest effects
+                on accuracy/speed. A <i>higher</i> output stride results in lower accuracy but higher speed. A
+                <i>higher</i> image scale factor results in higher accuracy but lower speed. </p>
+        </div>
+    </div>
+    <script src="scripts/demo_util.js"></script>
+    <script src="scripts/camera.js"></script>
+</body>
+
+</html>
