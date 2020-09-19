@@ -1,3 +1,5 @@
+const dr = [0, -1, -1], dc = [-1, -1, 0];
+
 function single_pair_cost(a, b) {
     console.assert(a.keypoints.length === b.keypoints.length)
 
@@ -35,7 +37,33 @@ function match_video_streams(youtube, webcam) {
         }
     }
 
+    let path = new Array(0);
+
+    let r = n, c = m;
+    do {
+        path.push([r, c]);
+
+        let vals = []
+        for (let i = 0; i < dr.length; i++) {
+            const nr = r + dr[i];
+            const nc = c + dc[i];
+            if (nr >= 0 && nc >= 0) {
+                vals.push([dp[nr][nc], nr, nc]);
+            }
+        }
+
+        vals.sort((a, b) => {
+            return a[0] > b[0] ? 1 : -1;
+        });
+
+        r = vals[0][1];
+        c = vals[0][2];
+    } while (!(!r && !c)); path.push([0, 0]); path.reverse();
+
     console.log(dp);
+    console.log(path)
+
+    return [path, dp]
 }
 
 // testing
