@@ -33,3 +33,10 @@ video {
 .vcard {
     height: 239px;
 }
+
+.step {
+    margin-top: 50%;
+    font-size: 10em;
+    color: #8bc34a;
+    
+  }
