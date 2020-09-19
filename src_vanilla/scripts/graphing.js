@@ -33,36 +33,28 @@ function initChart() {
     });
 }
 
-function renderChart(res) {
-    // console.log(res)
-
-    if (!res.length) return;
-    else if (res[0] == "ERASE") {
-        chart.data.labels = []
-        chart.data.datasets[0].data = []
-        chart.data.datasets[1].data = []
-        chart.data.datasets[2].data = []
-        lastObtained = -1
-    } else {
-        lastObtained += res.length
-
-        for (var i=0; i<res.length; i++) {
-            chart.data.labels.push(res[i][0])
-            chart.data.datasets[0].data.push(res[i][1])
-            chart.data.datasets[1].data.push(res[i][2])
-            chart.data.datasets[2].data.push(res[i][3])
-        }
-    }
-
-    chart.update()
-}
-
-function queryData() {
-    var url = "./phone-tracking/api/v1/get_data?start_idx=" + (lastObtained + 1);
-    corsHTTP(url, renderChart)
-
-    setTimeout(queryData, 4000)
-}
+// function renderChart(res) {
+//     // console.log(res)
+//
+//     if (!res.length) return;
+//     else if (res[0] == "ERASE") {
+//         chart.data.labels = []
+//         chart.data.datasets[0].data = []
+//         chart.data.datasets[1].data = []
+//         chart.data.datasets[2].data = []
+//         lastObtained = -1
+//     } else {
+//         lastObtained += res.length
+//
+//         for (var i=0; i<res.length; i++) {
+//             chart.data.labels.push(res[i][0])
+//             chart.data.datasets[0].data.push(res[i][1])
+//             chart.data.datasets[1].data.push(res[i][2])
+//             chart.data.datasets[2].data.push(res[i][3])
+//         }
+//     }
+//
+//     chart.update()
+// }
 
 initChart();
-queryData();
