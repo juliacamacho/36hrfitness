@@ -7,7 +7,10 @@ import classes from './Layout.css'
 
 const layout = (props) => {
     return (
-        <div style={{backgroundColor:"#80B2FF"}}>
+        <div className={classes.Layout}>
+            <div className={classes.Header}>
+                <h1>Welcome to 36hr Fitness!</h1>
+            </div>
             <Search />
             <VideoStream />
             <WebcamStream />
