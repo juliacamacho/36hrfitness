@@ -7,7 +7,14 @@
     color: #fafafa;
 }
 
-.header {
+#create, #join {
+    display: none;
+    height: 6vh;
+    border-radius: 1vh;
+    margin-left: 2vw;
+    color: #fafafa;
+    font-size: 2vw;
+    cursor: pointer;
 }
 
 #button {
