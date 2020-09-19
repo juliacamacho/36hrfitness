@@ -1,18 +1,36 @@
-import React from 'react';
+import React, {useState} from 'react';
 import classes from './Search.css'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
-const search = (props) => {
+const Search = (props) => {
+
+    const [urlState, setURLstate] = useState("")
+
+    const urlChangeHandler = (event) => {
+        setURLstate(event.target.value)
+    }
+
+    const orderHandler = () => {
+        console.log('clicked')
+        console.log(urlState)
+    }
+
     return(
         <div className={classes.Search}>
             <p>Please enter the URL of your video:</p>
             <form className={classes.Form}>
-                <TextField id="outlined-basic" label="Video URL" variant="outlined" />
-                <Button variant="contained">Submit</Button>
+                <TextField 
+                    id="outlined-basic" 
+                    label="Video URL" 
+                    variant="outlined"
+                    onChange={urlChangeHandler} />
+                <Button 
+                    variant="contained" 
+                    onClick={() => orderHandler()}>Submit</Button>
             </form>
         </div>
     )
 };
 
-export default search;
+export default Search;
