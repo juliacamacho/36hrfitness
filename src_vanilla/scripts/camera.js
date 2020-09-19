@@ -242,10 +242,10 @@ async function bindPage(n) {
     toggleLoadingUI(true);
 
     const net = await posenet.load({
-        architecture: 'MobileNetV1',
+        architecture: 'ResNet50',
         outputStride: 16,
         inputResolution: {width: 640, height: 480},
-        multiplier: 0.75,
+        multiplier: 1,
     });
     toggleLoadingUI(false);
 
