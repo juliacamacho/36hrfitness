@@ -13,7 +13,7 @@
     display: none;
     height: 6vh;
     border-radius: 1vh;
-    margin-left: 2vw;
+    margin-left: 3vw;
     color: #fafafa;
     font-size: 2vw;
     cursor: pointer;
@@ -23,7 +23,7 @@
     background: #ff5722;
     height: 6vh;
     border-radius: 1vh;
-    margin-left: 2vw;
+    margin-left: 3vw;
     color: #fafafa;
     font-size: 2vw;
 }
