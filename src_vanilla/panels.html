@@ -6,75 +6,98 @@
 
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet">
     <link rel="stylesheet" href="css/panels.css">
     <link rel="stylesheet" href="css/circular.css">
 
+    <link href="css/posenet.css" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Load TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <!-- Load Posenet -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/posenet"></script>
 </head>
 <body>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="scripts/index.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="scripts/index.js"></script>
 
-    <img id="gradient" src="media/background.png"></img>
+<img id="gradient" src="media/background.png"></img>
 
 <!--    add textbox at top-->
-      
-    <div class="row top" style="margin-bottom: 0px">
-        <div id = "webcam" class="col s6 center-align">
-            <div class="card large">
-                <video autoplay muted loop id="workout">
-                    <source src="media/workout.mp4" type="video/mp4">
-                </video>
+
+<div class="row top" style="margin-bottom: 0px">
+    <div id="webcam" class="col s6 center-align">
+        <div class="card large">
+            <div id="info">
             </div>
-        </div>
-        <div id = "otherPeople" class="col s6 center-align">
-            <div class="row" style="margin-bottom: 0px;">
-                <div class="col s6 center-align">
-                    <div class="card vcard">
-                        <video autoplay muted loop id="workout">
-                            <source src="media/workout.mp4" type="video/mp4">
-                        </video>
-                    </div>
+            <div id="loading" style="display: none">
+                <div class="spinner-text">
+                    Loading PoseNet model...
                 </div>
-                <div class="col s6 center-align">
-                    <div class="card vcard">
-                        <video autoplay muted loop id="workout">
-                            <source src="media/workout.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                </div>
+                <div class="sk-spinner sk-spinner-pulse"></div>
             </div>
-            <div class="row" style="margin-bottom: 0px">
-                <div class="col s6 center-align">
-                    <div class="card vcard">
-                        <video autoplay muted loop id="workout">
-                            <source src="media/workout.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                </div>
-                <div class="col s6 center-align">
-                    <div class="card vcard">
-                        <video autoplay muted loop id="workout">
-                            <source src="media/workout.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                </div>
+            <div id='main' style="display: block">
+                <video id="video-container" crossOrigin='anonymous'
+                       src='https://srv-file4.gofile.io/downloadStore/srv-store3/ImqzfQ/The%20Most%20Effective%20Squat%20Challenge%20-%20100%20Rep%20Fitness%20Blender%20Squat%20Challenge-mGvzVjuY8SY.mp4'
+                       autoPlay="true"
+                       muted="false" width="600" height="500"></video>
+                <canvas id="output"/>
             </div>
+            <p id="video-name">Workout Video by Bob</p>
         </div>
     </div>
 
+    <div id="otherPeople" class="col s6 center-align">
+        <div class="row" style="margin-bottom: 0px;">
+            <div class="col s6 center-align">
+                <div class="card vcard">
+                    <div id='webcam-main'>
+                        <video id="webcam-video" playsinline style="display: none;" width="600" height="500">
+                        </video>
+                        <canvas id="webcam-output"/>
+                    </div>
+                </div>
+            </div>
+            <!--                <div class="col s6 center-align">-->
+            <!--                    <div class="card vcard">-->
+            <!--                        <video autoplay muted loop id="workout">-->
+            <!--                            <source src="media/workout.mp4" type="video/mp4">-->
+            <!--                        </video>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+        </div>
+        <!--            <div class="row" style="margin-bottom: 0px">-->
+        <!--                <div class="col s6 center-align">-->
+        <!--                    <div class="card vcard">-->
+        <!--                        <video autoplay muted loop id="workout">-->
+        <!--                            <source src="media/workout.mp4" type="video/mp4">-->
+        <!--                        </video>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--                <div class="col s6 center-align">-->
+        <!--                    <div class="card vcard">-->
+        <!--                        <video autoplay muted loop id="workout">-->
+        <!--                            <source src="media/workout.mp4" type="video/mp4">-->
+        <!--                        </video>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+    </div>
+
+</div>
 
     <div class="row bottom">
         <div id = "" class="col s3">
             <div class="card medium z-depth-3">
-                <div class="spinner">
-                    <span style="color: white">asdf</span>
-                    <div class="loader">
-                        <span style="color: white">asdf</span>
-                    </div>
-                </div>
+<!--                <div class="spinner">-->
+<!--                    <span style="color: white">asdf</span>-->
+<!--                    <div class="loader">-->
+<!--                        <span style="color: white">asdf</span>-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
         </div>
         <div id = "" class="col s3">
@@ -90,11 +113,19 @@
 <!--        <div id = "" class="col s3">-->
 <!--            <div class="card small z-depth-3">-->
 <!--            </div>-->
-<!--        </div>-->
-    </div>
+        </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-    <script src="scripts/graphing.js"></script>
+<div class="footer">
+    <div class="footer-text">
+        .
+    </div>
+</div>
+<script src="scripts/demo_util.js"></script>
+<script src="scripts/camera.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<script src="scripts/graphing.js"></script>
 
 </body>
+
 </html>
