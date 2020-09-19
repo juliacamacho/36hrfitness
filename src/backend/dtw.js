@@ -13,12 +13,29 @@ function single_pair_cost(a, b) {
     return ans;
 }
 
-function global_cost() {
-
-}
-
 function match_video_streams(youtube, webcam) {
     console.log(single_pair_cost(youtube[0], webcam[0]))
+
+    let n = youtube.length;
+    let m = webcam.length
+
+    let dp = new Array(n + 1)
+    for (let i = 0; i <= n; i++) {
+        dp[i] = new Array(m + 1);
+        for (let j = 0; j <= m; j++) {
+            dp[i][j] = Number.POSITIVE_INFINITY;
+        }
+    }
+
+    dp[0][0] = 0;
+    for (let i = 1; i <= n; i++) {
+        for (let j = 1; j <= m; j++) {
+            let cost = single_pair_cost(youtube[i - 1], webcam[j - 1]);
+            dp[i][j] = cost + Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]);
+        }
+    }
+
+    console.log(dp);
 }
 
 // testing
