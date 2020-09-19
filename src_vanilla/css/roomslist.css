@@ -1,0 +1,12 @@
+body {
+  background: #C5DDEB;
+  font: 14px/20px "Lato", Arial, sans-serif;
+  padding: 40px 30px;
+  color: white;
+}
+
+h1 {
+    font-size: 60px;
+    line-height: 20px;
+    color: #494949;
+}
