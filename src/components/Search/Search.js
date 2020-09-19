@@ -1,9 +1,10 @@
 import React from 'react';
+import classes from './Search.css'
 
 const search = (props) => {
     return(
-        <div>
-            <p>Hello World!</p>
+        <div className={classes.BuildControls}>
+            <p style={{color:"red"}}>Hello World!</p>
         </div>
     )
 };

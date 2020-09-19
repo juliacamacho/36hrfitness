@@ -3,10 +3,11 @@ import Search from '../../components/Search/Search'
 import VideoStream from '../../components/VideoStream/VideoStream'
 import WebcamStream from '../../components/WebcamStream/WebcamStream'
 import Results from '../../components/Results/Results'
+import classes from './Layout.css'
 
 const layout = (props) => {
     return (
-        <div>
+        <div style={{backgroundColor:"#80B2FF"}}>
             <Search />
             <VideoStream />
             <WebcamStream />
