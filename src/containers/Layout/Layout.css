@@ -1,5 +1,5 @@
 .Layout {
-    background-color: #FFE7D9;
+    background-color: #7BB2D9;
     margin: auto;
     /* width: 90%; */
     border: 1px solid;
@@ -12,7 +12,9 @@
 }
 
 .Box {
-    border-style: solid;
+    /* border-style: solid; */
+    background-color: white;
+    border-radius: 15px;
     display: flex;
     justify-content: center;
     align-items: center;

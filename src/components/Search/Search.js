@@ -11,9 +11,10 @@ const Search = (props) => {
         setURLstate(event.target.value)
     }
 
-    const orderHandler = () => {
+    const buttonClickedHandler = () => {
         console.log('clicked')
         console.log(urlState)
+        props.url(urlState)
     }
 
     return(
@@ -27,7 +28,7 @@ const Search = (props) => {
                     onChange={urlChangeHandler} />
                 <Button 
                     variant="contained" 
-                    onClick={() => orderHandler()}>Submit</Button>
+                    onClick={() => buttonClickedHandler()}>Submit</Button>
             </form>
         </div>
     )

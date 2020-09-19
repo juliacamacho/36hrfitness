@@ -1,10 +1,13 @@
 import React from 'react';
 import classes from './WebcamStream.css'
+import Webcam from "react-webcam";
 
 const webcamStream = (props) => {
     return(
         <div className={classes.WebcamStream}>
-            <p>Webcam stream here</p>
+            <Webcam 
+                width='80%'
+            />
         </div>
     )
 };

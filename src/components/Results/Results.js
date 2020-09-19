@@ -1,11 +1,11 @@
 import React from 'react';
 import classes from './Results.css'
+import { Chart } from 'react-charts'
 
 const results = (props) => {
     return(
         <div className={classes.Results}>
-            <h1>Your results:</h1>
-            <textarea></textarea>
+            {/* <Chart /> */}
         </div>
     )
 };

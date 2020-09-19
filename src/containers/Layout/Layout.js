@@ -7,9 +7,15 @@ import classes from './Layout.css'
 import Grid from '@material-ui/core/Grid';
 import ResponsiveGridLayout from 'react-grid-layout';
 
-const layout = (props) => {
+const Layout = (props) => {
 
-    
+    const [updatedUrlState, setUpdatedUrlState] = useState("")
+
+    const handleUrlState = (urlState) => {
+        setUpdatedUrlState(urlState)
+        console.log("called this function")
+        console.log("urlState:", urlState)
+    }
 
     return (
         <div className={classes.Layout}>
@@ -18,13 +24,13 @@ const layout = (props) => {
                     key="a" 
                     data-grid={{x: 0, y: 0, w: 20, h: 5}}
                     className={classes.Box}>
-                    <Search />    
+                    <Search url={handleUrlState}/>    
                 </div>
                 <div 
                     key="b" 
                     data-grid={{x: 0, y: 0, w: 10, h: 10}}
                     className={classes.Box}>
-                    <VideoStream />    
+                    <VideoStream url={updatedUrlState}/>    
                 </div>
                 <div 
                     key="c" 
@@ -61,4 +67,4 @@ const layout = (props) => {
     )
 };
 
-export default layout;
+export default Layout;
