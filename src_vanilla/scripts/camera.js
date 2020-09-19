@@ -115,6 +115,7 @@ function detectPoseInRealTime(staticVideo, canvasID, webcamVideo, webcamID, net,
     webcamCanvas.width = videoWidth;
     webcamCanvas.height = videoHeight;
     let d = new Date();
+    let nowTime = (d.getTime() - n) / 1000;
 
     async function staticPoseDetectionFrame() {
         let poses = [];
@@ -138,6 +139,8 @@ function detectPoseInRealTime(staticVideo, canvasID, webcamVideo, webcamID, net,
             ctx.drawImage(staticVideo, 0, 0, videoWidth, videoHeight);
             ctx.restore();
         }
+
+        let d = new Date();
         let nowTime = (d.getTime() - n) / 1000;
         // For each pose (i.e. person) detected in an image, loop through the
         // poses and draw the resulting skeleton and keypoints if over certain
@@ -187,6 +190,7 @@ function detectPoseInRealTime(staticVideo, canvasID, webcamVideo, webcamID, net,
             webcamCtx.drawImage(webcamVideo, 0, 0, videoWidth, videoHeight);
             webcamCtx.restore();
         }
+        let d = new Date();
         let nowTime = (d.getTime() - n) / 1000;
         // For each pose (i.e. person) detected in an image, loop through the
         // poses and draw the resulting skeleton and keypoints if over certain
