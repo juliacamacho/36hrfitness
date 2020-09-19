@@ -8,6 +8,6 @@
 }
 
 .VideoStreams {
-    display: inline;
+    display: inline-block;
     align-items: center;
 }
