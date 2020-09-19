@@ -1,0 +1,64 @@
+#title {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 18vh;
+    /* margin-top: 1vh; */
+    margin-left: 2vw;
+    color: #fafafa;
+}
+
+.header {
+}
+
+#button {
+    background: #3f51b5;
+    height: 6vh;
+    border-radius: 1vh;
+    margin-left: 2vw;
+
+    color: #fafafa;
+    /* padding-top: 50%; */
+
+    font-size: 2vw;
+}
+
+#tint {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: rgba(33, 33, 33, 0.4) !important;
+}
+#workout {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+body {
+
+    font-family: 'Raleway', sans-serif;
+    /* animation: changingColor 20s infinite;
+    -webkit-animation: changingColor 20s infinite; */
+}
+
+/* 
+@keyframes changingColor {
+    0%{background-color: #90caf9;}
+    25%{background-color: #80deea;}
+    50%{background-color: #80cbc4;}
+    75%{background-color: #a5d6a7;}
+    100%{background-color: #c5e1a5;}
+  }
+
+@-webkit-keyframes changingColor{
+    0%{background-color: #90caf9;}
+    25%{background-color: #80deea;}
+    50%{background-color: #80cbc4;}
+    75%{background-color: #a5d6a7;}
+    100%{background-color: #c5e1a5;}
+} */
