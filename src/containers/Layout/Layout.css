@@ -1,4 +1,8 @@
 .Layout {
-    margin-top: 200px;
-    background-color: #80B2FF;
+    background-color: #FFE7D9;
+}
+
+.Header {
+    text-align: center;
+    padding-top: 30px;
 }
