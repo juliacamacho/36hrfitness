@@ -2,8 +2,10 @@
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
     font-size: 18vh;
+    line-height: 200px;
     /* margin-top: 1vh; */
     margin-left: 2vw;
+    padding-top: 70px;
     color: #fafafa;
 }
 
@@ -38,7 +40,7 @@
 #workout {
     position: fixed;
     right: 0;
-    bottom: 0;
+    top: 0;
     width: 100%;
     z-index: -1;
 }
