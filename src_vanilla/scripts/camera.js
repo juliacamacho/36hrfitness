@@ -1,21 +1,5 @@
 /* eslint-disable max-len */
-/**
- * @license
- * Copyright 2019 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-// eslint-disable-next-line max-len
+
 
 const videoWidth = 600;
 const videoHeight = 500;
@@ -119,7 +103,6 @@ function detectPoseInRealTime(staticVideo, canvasID, webcamVideo, webcamID, net,
     let lastWebcamPose = [];
 
     async function staticPoseDetectionFrame() {
-        lastVideoPose = [];
         let minPoseConfidence;
         let minPartConfidence;
 
@@ -147,7 +130,7 @@ function detectPoseInRealTime(staticVideo, canvasID, webcamVideo, webcamID, net,
         // poses and draw the resulting skeleton and keypoints if over certain
         // confidence scores
 
-        lastVideoPose.forEach(({score, keypoints}) => {
+        lastVideoPose.slice(-1).forEach(({score, keypoints}) => {
             if (score >= minPoseConfidence) {
                 if (guiState.output.showPoints) {
                     drawKeypoints(keypoints, minPartConfidence, ctx);
@@ -163,12 +146,12 @@ function detectPoseInRealTime(staticVideo, canvasID, webcamVideo, webcamID, net,
 
         // End monitoring code for frames per second
         // stats.end();
+        lastVideoPose = lastVideoPose.slice(-20); // cap at 20 elements
 
         requestAnimationFrame(webcamPoseDetectionFrame);
     }
 
     async function webcamPoseDetectionFrame() {
-        lastWebcamPose = [];
         let minPoseConfidence;
         let minPartConfidence;
 
@@ -195,7 +178,7 @@ function detectPoseInRealTime(staticVideo, canvasID, webcamVideo, webcamID, net,
         // poses and draw the resulting skeleton and keypoints if over certain
         // confidence scores
 
-        lastWebcamPose.forEach(({score, keypoints}) => {
+        lastWebcamPose.slice(-1).forEach(({score, keypoints}) => {
             if (score >= minPoseConfidence) {
                 if (guiState.output.showPoints) {
                     drawKeypoints(keypoints, minPartConfidence, webcamCtx);
@@ -213,7 +196,13 @@ function detectPoseInRealTime(staticVideo, canvasID, webcamVideo, webcamID, net,
         // stats.end();
         // console.log(lastWebcamPose[0])
         // console.log(lastVideoPose[0])
-        // process_angles(lastWebcamPose[0], lastVideoPose[0])
+        // KEVIN LOOK HERE
+        let path = match_video_streams(lastVideoPose, lastWebcamPose)[1];
+        // console.log(path)
+        process_angles(lastWebcamPose[0], lastVideoPose[0], path);
+
+
+        lastWebcamPose = lastWebcamPose.slice(-20)  // cap at 20 elements
         requestAnimationFrame(staticPoseDetectionFrame);
     }
 

@@ -16,7 +16,7 @@ function single_pair_cost(a, b) {
 }
 
 function match_video_streams(youtube, webcam) {
-    console.log(single_pair_cost(youtube[0], webcam[0]))
+    // console.log(single_pair_cost(youtube[0], webcam[0]))
 
     let n = youtube.length;
     let m = webcam.length
@@ -60,10 +60,10 @@ function match_video_streams(youtube, webcam) {
         c = vals[0][2];
     } while (!(!r && !c)); path.push([0, 0]); path.reverse();
 
-    console.log(dp);
-    console.log(path)
-
-    return [path, dp]
+    // console.log(dp);
+    // console.log(path);
+    // console.log(n + " "  + m)
+    return [dp[n][m], path]
 }
 
 // testing

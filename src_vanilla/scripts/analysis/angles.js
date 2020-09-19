@@ -30,8 +30,8 @@ function extract_points(single, param) {
     return lstar;
 }
 
-function process_angles(yt_single, wc_single) {
-    console.log(compute_anatomical_angles(yt_single, wc_single));
+function process_angles(yt, wc, path) {
+    // compute_anatomical_angles(yt, wc);
 }
 
 function compute_anatomical_angles(yt_single, wc_single) {
