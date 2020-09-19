@@ -217,6 +217,7 @@ function detectPoseInRealTime(staticVideo, canvasID, webcamVideo, webcamID, net,
 
         requestAnimationFrame(staticPoseDetectionFrame);
     }
+
     staticPoseDetectionFrame();
 }
 
@@ -236,8 +237,8 @@ async function updateFrameVideo(urls) {
  * Kicks off the demo by loading the posenet model, finding and loading
  * available camera devices, and setting off the detectPoseInRealTime function.
  */
- async function bindPage(n) {
-     console.log("got to bindPage")
+async function bindPage(n) {
+    console.log("got to bindPage")
     toggleLoadingUI(true);
 
     const net = await posenet.load({
@@ -288,13 +289,13 @@ navigator.getUserMedia = navigator.mediaDevices.getUserMedia ||
 // updateFrameVideo('www.youtube.com/watch?v=2MoGxae-zyo');
 
 
-// let video = document.getElementById('video-container');
-// video.addEventListener('loadeddata', function() {
-//
-// }, false);
-let d = new Date();
-let n = d.getTime();
-bindPage(n);
+let video = document.getElementById('video-container');
+video.addEventListener('loadeddata', function () {
+    let d = new Date();
+    let n = d.getTime();
+    bindPage(n);
+}, false);
+
 // video.crossOrigin = 'anonymous';
 // video.src = video2;
 // video.load();
