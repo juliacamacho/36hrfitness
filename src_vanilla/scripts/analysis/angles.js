@@ -59,7 +59,19 @@ function process_angles(yt, wc, path) {
 
     if (cnter++ % upd_int === 0) {
         for (let key in moving_stats) {
-            knobs[key].setValue(Math.round(moving_stats[key][0] / moving_stats[key][1]));
+            const num = Math.round(moving_stats[key][0] / moving_stats[key][1]);
+            knobs[key].setValue(num);
+
+            const el = $('#comment_' + key);
+            if (num < 85) {
+                el.text('Watch your ' + key + '!');
+                el.css('font-weight', 'bold');
+                el.css('color', 'red');
+            } else {
+                el.text('Great job!');
+                el.css('font-weight', 'normal');
+                el.css('color', 'green');
+            }
         }
         moving_stats = {
             'knee': [0, 0],
