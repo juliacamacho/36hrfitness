@@ -48,7 +48,7 @@ function process_angles(yt, wc, path) {
             const pred = res[key]['left']['wc'];
             const gt = res[key]['left']['yt'];
 
-            const val = 100 - Math.round(Math.abs((pred - gt) / 360) * 100);
+            const val = 100 - Math.round(Math.abs((pred - gt) / 180) * 100);
 
             moving_stats[key][0] += val;
             moving_stats[key][1] += 1;
@@ -63,13 +63,13 @@ function process_angles(yt, wc, path) {
             knobs[key].setValue(num);
 
             const el = $('#comment_' + key);
-            if (num < 85) {
+            if (num < 70) {
                 el.text('Watch your ' + key + '!');
                 el.css('font-weight', 'bold');
                 el.css('color', 'red');
             } else {
                 el.text('Great job!');
-                el.css('font-weight', 'normal');
+                el.css('font-weight', 'bold');
                 el.css('color', 'green');
             }
         }
