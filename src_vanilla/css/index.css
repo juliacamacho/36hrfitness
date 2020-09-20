@@ -9,8 +9,8 @@
     color: #fafafa;
 }
 
-#create, #join {
-    display: none;
+#create, #join, #leaderboard {
+    /* display: none; */
     height: 6vh;
     border-radius: 1vh;
     margin-left: 3vw;
