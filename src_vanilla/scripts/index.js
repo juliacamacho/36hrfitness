@@ -1,7 +1,13 @@
 $(document).ready(function(){
+
+    $( "#create" ).hide();
+    $( "#join" ).hide();
+    $(" #leaderboard").hide();
     $( "#button" ).click(function() {
         console.log("feefe")
         $("#create").stop().fadeToggle("slow");
+        $("#leaderboard").stop().fadeToggle("slow");
+
         $("#join").stop().fadeToggle("slow");
         // window.location.href = 'panels.html';
         return false;

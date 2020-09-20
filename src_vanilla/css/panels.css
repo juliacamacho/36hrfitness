@@ -34,6 +34,15 @@ video {
     height: 239px;
 }
 
+.toprow {
+    height: 550px;
+    width: 650px;
+}
+
+.otherPeople {
+    width: 500px !important;
+}
+
 .step {
     margin-top: 50%;
     font-size: 10em;
