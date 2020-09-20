@@ -2,6 +2,7 @@ let curData = []
 let chart = null
 let md = 0;
 let interval = 5;
+let startup = 15;
 
 function initChart() {
     let ctx = document.getElementById("line-chart").getContext("2d");
@@ -68,7 +69,7 @@ function renderChart(res) {
     //     }
     // }
 
-    if (res > 1.5) return;
+    if (startup-- > 0) return;
 
     if ((md++) % interval === 0) {
         chart.data.labels.push(chart.data.labels.length);
