@@ -32,8 +32,10 @@ function initChart() {
         options: {
             title: {
                 display: true,
-                text: 'Your Performance Over Time'
-            }
+                text: 'Your Performance Over Time',
+                fontSize: 18
+            },
+            aspectRatio: 1.15
         }
     });
 }
