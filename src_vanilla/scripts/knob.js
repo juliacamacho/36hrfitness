@@ -1,6 +1,6 @@
 let knobs = {
     'knee': null,
-    'back': null,
+    'neck': null,
     'elbow': null,
     'hip': null,
 };
