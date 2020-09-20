@@ -25,15 +25,29 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="scripts/index.js"></script>
 
-<img id="gradient" src="media/background.png"></img>
+<!--<img id="gradient" src="media/background.png"></img>-->
+<style>
+    body {
+        background-image: url('media/background.png');
+    }
+</style>
 
 <!--    add textbox at top-->
 
 <div class="row top" style="margin-bottom: 0px">
+
+
     <div id="webcam" class="col s6 center-align">
-        <div class="card large">
+
+        <div class="card">
             <div id="info">
             </div>
+            <select class="browser-default">
+                <option value="" disabled selected>Choose your Workout</option>
+                <option value="1">Fitness Blender Legs Training</option>
+                <option value="2">Chloe Ting Abs Workout</option>
+                <option value="3">OKF Home Gym Session</option>
+            </select>
             <div id="loading" style="display: none">
                 <div class="spinner-text">
                     Loading PoseNet model...
@@ -48,19 +62,23 @@
                 <canvas id="output"/>
             </div>
 <!--            <p id="video-name"></p>-->
+
         </div>
     </div>
 
     <div id="otherPeople" class="col s6 center-align">
         <div class="row" style="margin-bottom: 0px;">
             <div class="col s6 center-align">
-                <div class="card large">
+                <div class="card large" style="min-width: 600px; min-height: 550px">
                     <div id='webcam-main'>
                         <video id="webcam-video" playsinline style="display: none;" width="600" height="500">
                         </video>
                         <canvas id="webcam-output"/>
                     </div>
+                    <h5 class="center-align" id="current_score">              Current Score: 0</h5>
                 </div>
+            </div>
+            <div>
             </div>
         </div>
         <!--            <div class="row" style="margin-bottom: 0px">-->
@@ -87,13 +105,8 @@
     <div class="row bottom">
 
 
-<!--        <div id = "" class="col s3">-->
-<!--            <div class="card medium z-depth-3">-->
-<!--&lt;!&ndash;                <div class="spinner">&ndash;&gt;-->
-<!--&lt;!&ndash;                    <div class="loader"></div>&ndash;&gt;-->
-<!--&lt;!&ndash;                </div>&ndash;&gt;-->
-<!--            </div>-->
-<!--        </div>-->
+
+
 <!--        <div id = "" class="col s3">-->
 <!--            <div class="card medium z-depth-3">-->
 <!--                <canvas id="line-chart"></canvas>-->
@@ -108,32 +121,32 @@
                             <li class="collection-item avatar">
                                 <i class="material-icons circle blue">account_circle</i>
                                 <span class="title">1st Place</span>
-                                <p>Jane<br>
-                                    63 points
+                                <p>Julia<br>
+                                    5902 points
                                 </p>
                                 <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
                             </li>
                             <li class="collection-item avatar">
                                 <i class="material-icons circle">account_circle</i>
                                 <span class="title">2nd Place</span>
-                                <p>John<br>
-                                    50 points
+                                <p>Nihar<br>
+                                    3077 points
                                 </p>
                                 <!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> -->
                             </li>
                             <li class="collection-item avatar">
                                 <i class="material-icons circle green">account_circle</i>
                                 <span class="title">3rd Place</span>
-                                <p>Anna<br>
-                                    42 points
+                                <p>Kevin<br>
+                                    1710 points
                                 </p>
                                 <!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> -->
                             </li>
                             <li class="collection-item avatar">
                                 <i class="material-icons circle red">account_circle</i>
                                 <span class="title">4th Place</span>
-                                <p>Michael<br>
-                                    31 points
+                                <p>Brandon<br>
+                                    1109 points
                                 </p>
                                 <!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> -->
                             </li>

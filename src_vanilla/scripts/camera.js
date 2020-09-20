@@ -102,6 +102,8 @@ function detectPoseInRealTime(staticVideo, canvasID, webcamVideo, webcamID, net,
     let lastVideoPose = [];
     let lastWebcamPose = [];
 
+    const startTime = n;
+
     async function staticPoseDetectionFrame() {
         let minPoseConfidence;
         let minPartConfidence;
@@ -172,8 +174,7 @@ function detectPoseInRealTime(staticVideo, canvasID, webcamVideo, webcamID, net,
             webcamCtx.drawImage(webcamVideo, 0, 0, videoWidth, videoHeight);
             webcamCtx.restore();
         }
-        let d = new Date();
-        let nowTime = (d.getTime() - n) / 1000;
+
         // For each pose (i.e. person) detected in an image, loop through the
         // poses and draw the resulting skeleton and keypoints if over certain
         // confidence scores
@@ -203,6 +204,12 @@ function detectPoseInRealTime(staticVideo, canvasID, webcamVideo, webcamID, net,
 
         let score = match_res[0];
         let path = match_res[1];
+
+        let d = new Date();
+        let nowTime = (d.getTime() - startTime) / 1000;
+
+        let current_score =   Math.floor( nowTime * score / 40000);
+        document.getElementById("current_score").innerText = "Current Score: " + current_score
         process_angles(lastWebcamPose, lastVideoPose, path);
 
 
