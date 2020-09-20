@@ -2,7 +2,7 @@ $(document).ready(function(){
 
     $( "#create" ).hide();
     $( "#join" ).hide();
-    $(" #leaderboard").hide();
+    // $(" #leaderboard").hide();
     $( "#button" ).click(function() {
         console.log("feefe")
         $("#create").stop().fadeToggle("slow");
@@ -23,9 +23,9 @@ $(document).ready(function(){
         return false;
     });
 
-    $( "#leaderboard" ).click(function() {
-        window.location.href = 'leaderboard.html';
-        return false;
-    });
+    // $( "#leaderboard" ).click(function() {
+    //     window.location.href = 'leaderboard.html';
+    //     return false;
+    // });
 
 });
