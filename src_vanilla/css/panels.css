@@ -80,7 +80,87 @@ video {
 }
 
 pog { width: 50%; height: 50%; float: left; }
-#div1 { background: #DDD; }
-#div2 { background: #AAA; }
-#div3 { background: #777; }
-#div4 { background: #444; }
+
+.circlePercent {
+    position: relative;
+    top: 26px;
+    left: 26px;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: orange;
+}
+.circlePercent:before,
+.circlePercent > .progressEnd {
+    position: absolute;
+    z-index: 3;
+    top: 2px;
+    left: 45px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: white;
+    -ms-transform-origin: 3px 46px;
+    transform-origin: 3px 46px;
+    content: "";
+}
+.circlePercent:after,
+.circlePercent > .progress {
+    position: absolute;
+    -ms-transform-origin: 48px 48px;
+    transform-origin: 48px 48px;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 48px;
+    height: 96px;
+    border-radius: 48px 0 0 48px;
+    background: orange;
+    content: "";
+}
+.circlePercent.fiftyPlus:after {
+    background: white;
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.circlePercent > .progress.progress {
+    background: white;
+}
+.circlePercent > .counter {
+    position: absolute;
+    box-sizing: border-box;
+    z-index: 2;
+    width: 100px;
+    height: 100px;
+    margin-top: -2px;
+    margin-left: -2px;
+    border-radius: 50%;
+    border: 4px solid orange;
+}
+.circlePercent > .counter:before {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    margin-top: -13px;
+    width: 100%;
+    height: 26px;
+    font-size: 26px;
+    line-height: 26px;
+    font-family: sans-serif;
+    text-align: center;
+    color: white;
+    content: attr(data-percent) "%";
+}
+.circlePercent > .counter:after {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: 6px;
+    left: 6px;
+    border-radius: 50%;
+    background: orange;
+    content: "";
+}
+.circlePercent > .counter[data-percent="100"] {
+    background: white;
+}
