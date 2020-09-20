@@ -31,7 +31,11 @@ function extract_points(single, param) {
 }
 
 function process_angles(yt, wc, path) {
-    // compute_anatomical_angles(yt, wc);
+    for (let i = 1; i < path.length; i++) {
+        let res = compute_anatomical_angles(yt[path[i][0] - 1], wc[path[i][1] - 1]);
+
+
+    }
 }
 
 function compute_anatomical_angles(yt_single, wc_single) {

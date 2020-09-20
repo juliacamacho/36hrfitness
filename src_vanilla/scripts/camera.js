@@ -212,7 +212,7 @@ function detectPoseInRealTime(staticVideo, canvasID, webcamVideo, webcamID, net,
 
         document.getElementById("current_score").innerText = current_score;
         document.getElementById("total_score").innerText = "Video Total: " + total_score;
-        process_angles(lastWebcamPose, lastVideoPose, path);
+        process_angles(lastVideoPose, lastWebcamPose, path);
 
         renderChart(current_score);
 
