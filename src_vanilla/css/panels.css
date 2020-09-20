@@ -117,8 +117,23 @@ body {
 }
 
 #dropper {
-    margin-top: 10%;
+    margin-top: 20%;
 }
+
+
+.inputter {
+    margin-bottom: 15%;
+}
+
+#themeButton{
+    margin-top: 10%;
+    text-align: center;
+}
+
+.btn {
+    background-color: #03a9f4 !important;
+}
+
 
 .step {
     margin-top: 50%;
