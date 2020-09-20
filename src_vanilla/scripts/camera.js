@@ -207,10 +207,10 @@ function detectPoseInRealTime(staticVideo, canvasID, webcamVideo, webcamID, net,
         let score = match_res[0];
         let path = match_res[1];
 
-        let current_score = 20000 / score; // Math.floor( nowTime * score / 40000);
+        let current_score = Math.round(20000 / score * 100); // Math.floor( nowTime * score / 40000);
         total_score += current_score;
 
-        document.getElementById("current_score").innerText = Math.round(current_score * 100);
+        document.getElementById("current_score").innerText = current_score;
         document.getElementById("total_score").innerText = "Video Total: " + total_score;
         process_angles(lastWebcamPose, lastVideoPose, path);
 
