@@ -202,7 +202,7 @@ function detectPoseInRealTime(staticVideo, canvasID, webcamVideo, webcamID, net,
 
         // KEVIN LOOK HERE
         let match_res = match_video_streams(lastVideoPose, lastWebcamPose);
-        // console.log(path)
+        // console.log(path)1
 
         let score = match_res[0];
         let path = match_res[1];
