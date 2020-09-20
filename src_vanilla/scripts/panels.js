@@ -21,9 +21,13 @@ function timer(){
         // console.log(seconds);
         if (seconds.toString().length == 1){
             var secString = "0" + seconds.toString();
+        } else {
+            var secString = seconds.toString();
         }
         if (minutes.toString().length == 1){
             var minString = "0" + minutes.toString();
+        } else {
+            var minString = minutes.toString();
         }
 
         var time = "- Session Length: " + minString + ":" + secString;

@@ -79,7 +79,7 @@ body {
     border-radius: 2px;
 }
 
-#infoSess {
+.infoSess {
     padding-top: 1vh;
     font-size: 1.4em;
 }
