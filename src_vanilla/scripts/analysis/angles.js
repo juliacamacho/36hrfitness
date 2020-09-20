@@ -34,8 +34,13 @@ function process_angles(yt, wc, path) {
     for (let i = 1; i < path.length; i++) {
         let res = compute_anatomical_angles(yt[path[i][0] - 1], wc[path[i][1] - 1]);
 
-        for (ley key in res) {
-            console.log(res[key]['left'])
+        for (let key in res) {
+            const pred = res[key]['left']['wc'];
+            const gt = res[key]['left']['yt'];
+
+            const val = Math.round(Math.abs((pred - gt) / gt) * 100);
+            console.log(knobs);
+            knobs[key].setValue(val);
         }
     }
 }
