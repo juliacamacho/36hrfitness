@@ -208,7 +208,7 @@ function detectPoseInRealTime(staticVideo, canvasID, webcamVideo, webcamID, net,
         let path = match_res[1];
 
         let current_score = Math.round(20000 / score * 100); // Math.floor( nowTime * score / 40000);
-        total_score += current_score;
+        total_score += Math.round(1/30 * current_score);
 
         document.getElementById("current_score").innerText = current_score;
         document.getElementById("total_score").innerText = "Video Total: " + total_score;
