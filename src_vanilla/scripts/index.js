@@ -17,4 +17,9 @@ $(document).ready(function(){
         return false;
     });
 
+    $( "#leaderboard" ).click(function() {
+        window.location.href = 'leaderboard.html';
+        return false;
+    });
+
 });
