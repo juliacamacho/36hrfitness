@@ -57,7 +57,7 @@ var delayCreateScene = function () {
         var rightRange = skeleton.getAnimationRange("YBot_RightStrafeWalk");
 
         // IDLE
-        if (idleRange) scene.beginAnimation(skeleton, idleRange.from, idleRange.to, true);
+        if (idleRange) scene.beginAnimation(skeleton, walkRange.from, walkRange.to, true);
 
         // UI
         var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
