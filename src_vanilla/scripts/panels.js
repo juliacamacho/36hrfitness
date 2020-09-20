@@ -32,7 +32,6 @@ function timer(){
 
         var time = "- Session Length: " + minString + ":" + secString;
 
-        console.log(time);
         $("#infoSess").text(time); 
         seconds++;
     }, 1000);
@@ -47,7 +46,6 @@ function changeNum(number){
     var r = (255 * n) / 100
     var g = (255 * (100 - n)) / 100 
     var b = 0
-    console.log(r,g,b)
     var percentage = number / 10;
     var hue0 = -10
     var hue1 = 100;
@@ -56,7 +54,6 @@ function changeNum(number){
 
     var col = "rgb(" + r.toString() + "," + g.toString() + "," + b.toString() + ")";
     col = 'hsl(' + hue + ', 90%, 40%)'
-    console.log(col);
     $(".step").css({'color': col});
 
 }
