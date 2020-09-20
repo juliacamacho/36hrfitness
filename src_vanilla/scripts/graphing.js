@@ -42,7 +42,7 @@ function initChart() {
                 text: 'Your Performance Over Time',
                 fontSize: 18
             },
-            aspectRatio: 1.5,
+            aspectRatio: 1.6,
         }
     });
 }
