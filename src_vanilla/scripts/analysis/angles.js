@@ -30,6 +30,16 @@ function extract_points(single, param) {
     return lstar;
 }
 
+let moving_stats = {
+    'knee': [0, 0],
+    'neck': [0, 0],
+    'hip': [0, 0],
+    'elbow': [0, 0],
+}
+
+let upd_int = 5;
+let cnter = 0;
+
 function process_angles(yt, wc, path) {
     for (let i = 1; i < path.length; i++) {
         let res = compute_anatomical_angles(yt[path[i][0] - 1], wc[path[i][1] - 1]);
@@ -38,9 +48,36 @@ function process_angles(yt, wc, path) {
             const pred = res[key]['left']['wc'];
             const gt = res[key]['left']['yt'];
 
-            const val = Math.round(Math.abs((pred - gt) / gt) * 100);
-            console.log(knobs);
-            knobs[key].setValue(val);
+            const val = 100 - Math.round(Math.abs((pred - gt) / 360) * 100);
+
+            moving_stats[key][0] += val;
+            moving_stats[key][1] += 1;
+
+            if (key === 'elbow') console.log(pred, gt)
+        }
+    }
+
+    if (cnter++ % upd_int === 0) {
+        for (let key in moving_stats) {
+            const num = Math.round(moving_stats[key][0] / moving_stats[key][1]);
+            knobs[key].setValue(num);
+
+            const el = $('#comment_' + key);
+            if (num < 85) {
+                el.text('Watch your ' + key + '!');
+                el.css('font-weight', 'bold');
+                el.css('color', 'red');
+            } else {
+                el.text('Great job!');
+                el.css('font-weight', 'normal');
+                el.css('color', 'green');
+            }
+        }
+        moving_stats = {
+            'knee': [0, 0],
+            'neck': [0, 0],
+            'hip': [0, 0],
+            'elbow': [0, 0],
         }
     }
 }

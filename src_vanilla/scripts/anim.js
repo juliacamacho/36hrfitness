@@ -79,16 +79,16 @@ var delayCreateScene = function () {
         // });
         // UiPanel.addControl(button);
         // ..
-        var button1 = BABYLON.GUI.Button.CreateSimpleButton("but2", "Teach Me!");
-        button1.paddingTop = "10px";
-        button1.width = "100px";
-        button1.height = "50px";
-        button1.color = "white";
-        button1.background = "green";
-        button1.onPointerDownObservable.add(()=> {
-            if (walkRange) scene.beginAnimation(skeleton, walkRange.from, walkRange.to, true);
-        });
-        UiPanel.addControl(button1);
+        // var button1 = BABYLON.GUI.Button.CreateSimpleButton("but2", "Teach Me!");
+        // button1.paddingTop = "10px";
+        // button1.width = "100px";
+        // button1.height = "50px";
+        // button1.color = "white";
+        // button1.background = "green";
+        // button1.onPointerDownObservable.add(()=> {
+        //     if (walkRange) scene.beginAnimation(skeleton, walkRange.from, walkRange.to, true);
+        // });
+        // UiPanel.addControl(button1);
         // // ..
         // var button1 = BABYLON.GUI.Button.CreateSimpleButton("but3", "Play Run");
         // button1.paddingTop = "10px";
