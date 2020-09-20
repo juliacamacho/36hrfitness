@@ -15,6 +15,28 @@
     background-color: #212121 !important;
 }
 
+.input-field input{
+    border-bottom: #9e9e9e !important;
+    box-shadow: 0 1px 0 0 #9e9e9e !important;
+  }
+  
+  .input-field input:focus{
+      border-bottom: #212121 !important;
+      box-shadow: 0 2px 0 0 #212121 !important;
+  }
+  
+  label {
+    color: #9e9e9e !important;
+  }
+  
+  
+  .input-field input[type=text]:focus + label {
+    color: #212121 !important;
+  }
+
+  .or {
+      text-align: center;
+  }
 
 
 /* body {
@@ -95,7 +117,7 @@ body {
 }
 
 #dropper {
-    margin-top: 10%;
+    margin-top: 60%;
 }
 
 .step {
