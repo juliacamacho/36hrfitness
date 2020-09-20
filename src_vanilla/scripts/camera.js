@@ -4,6 +4,8 @@
 const videoWidth = 600;
 const videoHeight = 500;
 
+let total_score = 0;
+
 const guiState = {
     algorithm: 'single-pose',
     singlePoseDetection: {
@@ -205,11 +207,11 @@ function detectPoseInRealTime(staticVideo, canvasID, webcamVideo, webcamID, net,
         let score = match_res[0];
         let path = match_res[1];
 
-        let d = new Date();
-        let nowTime = (d.getTime() - startTime) / 1000;
+        let current_score = 20000 / score; // Math.floor( nowTime * score / 40000);
+        total_score += current_score;
 
-        let current_score = 20000 / score // Math.floor( nowTime * score / 40000);
         document.getElementById("current_score").innerText = Math.round(current_score * 100);
+        document.getElementById("total_score").innerText = "Video Total: " + total_score;
         process_angles(lastWebcamPose, lastVideoPose, path);
 
         renderChart(current_score);
