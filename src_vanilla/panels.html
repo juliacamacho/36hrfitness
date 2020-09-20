@@ -92,7 +92,7 @@
     </div>
 
     <div class="card col s2" id="chooser">
-        <select class="browser-default">
+        <select class="browser-default" id="dropper">
             <option value="" disabled selected>Choose your Workout</option>
             <option value="1">Fitness Blender Legs Training</option>
             <option value="2">Chloe Ting Abs Workout</option>
@@ -144,7 +144,7 @@
     <div class="row bottom">
         <div class="row bottom">
             <div id = "" class="col s2">
-                <div class="card medium z-depth-3">
+                <div class="card medium z-depth-3 score">
                     <div class="spinner">
                         <div style="position: absolute; top: 10px; z-index: 999;">
                             <span style="color: white; font-size: 30px; font-family: 'Raleway', sans-serif;">Current Score</span>
@@ -167,9 +167,9 @@
             </div>
         </div>
 
-        <div id = "" class="col s6">
+        <div id = "" class="col s4">
             <div class="card medium z-depth-3">
-                <canvas id="renderCanvas" height="400px" width="600px"></canvas>
+                <canvas id="renderCanvas"></canvas>
             </div>
         </div>
 
