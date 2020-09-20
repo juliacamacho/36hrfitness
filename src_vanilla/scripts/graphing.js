@@ -4,6 +4,12 @@ let md = 0;
 let interval = 5;
 
 function initChart() {
+    let ctx = document.getElementById("line-chart").getContext("2d");
+
+    let gradientFill = ctx.createLinearGradient(500, 0, 100, 0);
+    gradientFill.addColorStop(0, "rgba(128, 182, 244, 0.6)");
+    gradientFill.addColorStop(1, "rgba(244, 144, 128, 0.6)");
+
     chart = new Chart(document.getElementById("line-chart"), {
         type: 'line',
         data: {
@@ -13,7 +19,8 @@ function initChart() {
                     data: [],
                     label: "Score",
                     borderColor: "#3e95cd",
-                    fill: false
+                    fill: true,
+                    backgroundColor: gradientFill
                 },
                 // {
                 //     data: [],
@@ -32,8 +39,10 @@ function initChart() {
         options: {
             title: {
                 display: true,
-                text: 'Your Performance Over Time'
-            }
+                text: 'Your Performance Over Time',
+                fontSize: 18
+            },
+            aspectRatio: 1.6,
         }
     });
 }
