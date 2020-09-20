@@ -209,7 +209,7 @@ function detectPoseInRealTime(staticVideo, canvasID, webcamVideo, webcamID, net,
         let nowTime = (d.getTime() - startTime) / 1000;
 
         let current_score = 20000 / score // Math.floor( nowTime * score / 40000);
-        document.getElementById("current_score").innerText = "Current Score: " + current_score
+        document.getElementById("current_score").innerText = Math.round(current_score * 100);
         process_angles(lastWebcamPose, lastVideoPose, path);
 
         renderChart(current_score);
